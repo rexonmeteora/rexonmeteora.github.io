@@ -46,23 +46,21 @@
 
   <script>
     // Replace with the specific SPL Token address you want to track
-    const TOKEN_ADDRESS = 'CubfpqQ6Gbft4Cjgdnxbvqp3QRQrDTuVhWD2gwWg1aRk';
-    
-    // Using a CORS proxy
-    const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';  // or use another service
+const TOKEN_ADDRESS = 'CubfpqQ6Gbft4Cjgdnxbvqp3QRQrDTuVhWD2gwWg1aRk';
+const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 
-    
-    async function fetchHolders() {
-      try {
-        const response = await fetch(
-          `${CORS_PROXY}https://api.solscan.io/token/holders?tokenAddress=${TOKEN_ADDRESS}&limit=50`
-        );
-        const data = await response.json();
-        populateTable(data.data);
-      } catch (error) {
-        console.error('Error fetching holder data:', error);
-      }
-    }
+async function fetchHolders() {
+  try {
+    const response = await fetch(
+      `${CORS_PROXY}https://api.solscan.io/token/holders?tokenAddress=${TOKEN_ADDRESS}&limit=50`
+    );
+    const data = await response.json();
+    populateTable(data.data);
+  } catch (error) {
+    console.error('Error fetching holder data:', error);
+  }
+}
+
 
 
     function populateTable(holders) {
