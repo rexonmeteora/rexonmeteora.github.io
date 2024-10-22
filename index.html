@@ -8,39 +8,39 @@
         /* Base Styles */
         body {
             margin: 0;
-            padding: 0;
+            padding: 20px;
             font-family: 'Comic Sans MS', sans-serif;
             background: linear-gradient(135deg, #ffafbd, #ffc3a0);
             color: white;
-            overflow: hidden;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
         header {
             background-color: #ff4b5c;
             text-align: center;
             padding: 20px;
-            font-size: 32px;
+            font-size: 8vw;
             animation: pulse 1.5s infinite;
         }
         header h1 {
             margin: 0;
-            font-size: 48px;
+            font-size: 10vw;
         }
         header h2 {
             margin: 5px 0;
-            font-size: 24px;
+            font-size: 5vw;
         }
         main {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 80vh;
             text-align: center;
             gap: 20px;
+            padding-bottom: 40px;
         }
         main p {
-            font-size: 24px;
+            font-size: 5vw;
             font-weight: bold;
+            max-width: 90%;
         }
         .image-placeholder img {
             width: 80%;
@@ -48,9 +48,9 @@
             border: 5px solid #fff;
             animation: float 3s infinite ease-in-out;
         }
-        .buy-button {
+        .button {
             padding: 15px 40px;
-            font-size: 28px;
+            font-size: 6vw;
             font-weight: bold;
             color: white;
             background-color: #28a745;
@@ -61,8 +61,10 @@
             animation: bounce 1s infinite;
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
+            margin-bottom: 10px;
+            width: fit-content;
         }
-        .buy-button:hover {
+        .button:hover {
             background-color: #218838;
             transform: scale(1.1);
             box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3);
@@ -71,11 +73,10 @@
             background-color: #333;
             color: white;
             padding: 10px 0;
-            position: fixed;
-            bottom: 0;
             width: 100%;
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
         }
         footer a img {
             width: 40px;
@@ -130,8 +131,13 @@
         <p>We are cooking something great! 🍳 <br> Check back often for updates!</p>
 
         <a href="https://jup.ag/swap/SOL-CubfpqQ6Gbft4Cjgdnxbvqp3QRQrDTuVhWD2gwWg1aRk" 
-           class="buy-button" target="_blank">
+           class="button" target="_blank">
             🚀 Buy Now 🚀
+        </a>
+
+        <a href="https://dexscreener.com/solana/cubfpqq6gbft4cjgdnxbvqp3qrqrdtuvhwd2gwwg1ark" 
+           class="button" target="_blank">
+            📈 Check Top 50 Holders 📈
         </a>
     </main>
 
@@ -144,9 +150,6 @@
         </a>
         <a href="https://www.instagram.com/rexonmeteora/" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-        </a>
-        <a href="https://dexscreener.com/solana/cubfpqq6gbft4cjgdnxbvqp3qrqrdtuvhwd2gwwg1ark" target="_blank">
-            <img src="https://images.seeklogo.com/logo-png/52/1/dex-screener-logo-png_seeklogo-527276.png" alt="Dexscreener">
         </a>
     </footer>
 
