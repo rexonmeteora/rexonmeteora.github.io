@@ -63,14 +63,12 @@
             height: 40px;
         }
 
-        /* Fireworks Styles */
-        .firework {
+        /* Cash Emoji Animation */
+        .cash {
             position: fixed;
-            bottom: 0;
-            width: 8px;
-            height: 20px;
-            background-color: green;
-            animation: explode 1.5s linear;
+            top: -50px;
+            font-size: 40px;
+            animation: fall 4s linear infinite;
         }
 
         @keyframes pulse {
@@ -83,15 +81,9 @@
             50% { transform: translateY(-10px); }
         }
 
-        @keyframes explode {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(720deg);
-                opacity: 0;
-            }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
@@ -130,20 +122,21 @@
     </footer>
 
     <script>
-        // Fireworks effect: Create green rectangles that "explode" upwards
-        function createFirework() {
-            const firework = document.createElement('div');
-            firework.classList.add('firework');
-            firework.style.left = Math.random() * 100 + 'vw';
-            firework.style.animationDuration = Math.random() * 1 + 1.5 + 's';
-            document.body.appendChild(firework);
+        // Function to create falling cash emoji
+        function createCashEmoji() {
+            const cash = document.createElement('div');
+            cash.className = 'cash';
+            cash.textContent = '💵';  // Cash emoji
+            cash.style.left = Math.random() * 100 + 'vw';
+            cash.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(cash);
 
-            // Remove firework after animation
-            setTimeout(() => firework.remove(), 1500);
+            // Remove the emoji after animation completes
+            setTimeout(() => cash.remove(), 5000);
         }
 
-        // Launch fireworks continuously every 400ms
-        setInterval(createFirework, 400);
+        // Generate cash emojis continuously every 300ms
+        setInterval(createCashEmoji, 300);
     </script>
 
 </body>
