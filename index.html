@@ -63,14 +63,35 @@
             height: 40px;
         }
 
-        /* Keyframes for Animations */
+        /* Fireworks Styles */
+        .firework {
+            position: fixed;
+            bottom: 0;
+            width: 8px;
+            height: 20px;
+            background-color: green;
+            animation: explode 1.5s linear;
+        }
+
         @keyframes pulse {
             0%, 100% { background-color: #ff4b5c; }
             50% { background-color: #ffafbd; }
         }
+
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -82,7 +103,9 @@
     </header>
 
     <main>
-        <p>🔥 LP rewards airdropped to top 50 holders every 24 hours! <a href="https://docs.moonshot.cc/faq#whats-airlock" style="color: #fff; text-decoration: underline;">Learn More</a></p>
+        <p>🔥 LP rewards airdropped to top 50 holders every 24 hours! 
+           <a href="https://docs.moonshot.cc/faq#whats-airlock" style="color: #fff; text-decoration: underline;">Learn More</a>
+        </p>
         
         <div class="image-placeholder">
             <img src="rex-cooking-website-1-250.jpg" alt="R.E.X. with Chef's Hat">
@@ -107,37 +130,20 @@
     </footer>
 
     <script>
-        // Fireworks Effect
-        const createFirework = () => {
+        // Fireworks effect: Create green rectangles that "explode" upwards
+        function createFirework() {
             const firework = document.createElement('div');
-            firework.className = 'firework';
+            firework.classList.add('firework');
             firework.style.left = Math.random() * 100 + 'vw';
-            firework.style.animationDuration = Math.random() * 2 + 2 + 's';
+            firework.style.animationDuration = Math.random() * 1 + 1.5 + 's';
             document.body.appendChild(firework);
-            setTimeout(() => firework.remove(), 5000);
-        };
 
-        setInterval(createFirework, 500);
+            // Remove firework after animation
+            setTimeout(() => firework.remove(), 1500);
+        }
 
-        // Firework Styles
-        const style = document.createElement('style');
-        style.innerHTML = `
-            .firework {
-                position: fixed;
-                bottom: 0;
-                width: 10px;
-                height: 10px;
-                background: green;
-                box-shadow: 0 0 10px green, 0 0 20px green;
-                border-radius: 50%;
-                animation: fly 3s ease-in-out;
-            }
-            @keyframes fly {
-                0% { transform: translateY(0); opacity: 1; }
-                100% { transform: translateY(-100vh); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
+        // Launch fireworks continuously every 400ms
+        setInterval(createFirework, 400);
     </script>
 
 </body>
