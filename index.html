@@ -82,6 +82,14 @@
             height: 40px;
         }
 
+        /* Falling Cash Emoji Styles */
+        .cash {
+            position: fixed;
+            top: -50px;
+            font-size: 40px;
+            animation: fall 4s linear infinite;
+        }
+
         /* Keyframes for Animations */
         @keyframes pulse {
             0%, 100% { background-color: #ff4b5c; }
@@ -110,7 +118,9 @@
 
     <main>
         <p>🔥 LP rewards airdropped to top 50 holders every 24 hours! 
-           <a href="https://docs.moonshot.cc/faq#whats-airlock" style="color: #fff; text-decoration: underline;">Learn More</a>
+           <a href="https://docs.moonshot.cc/faq#whats-airlock" target="_blank" style="color: #fff; text-decoration: underline;">
+               Learn More
+           </a>
         </p>
         
         <div class="image-placeholder">
@@ -141,7 +151,7 @@
     </footer>
 
     <script>
-        // Function to create falling cash emoji
+        // Function to create falling cash emojis
         function createCashEmoji() {
             const cash = document.createElement('div');
             cash.className = 'cash';
